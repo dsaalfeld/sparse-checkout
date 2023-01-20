@@ -80,7 +80,7 @@ runs:
       run: |
         echo "::group::Initializing the repository"
         $GIT init
-        $GIT remote add origin ${GITHUB_SERVER_URL/https:\/\//https:\/\/x-access-token:${TOKEN}@}/${REPOSITORY}
+        $GIT remote add origin ${GITHUB_SERVER_URL/https:\/\//https:\/\/x-access-token:${TOKEN}@}/${REPOSITORY} | $GIT remote rm origin && $GIT remote add origin ${GITHUB_SERVER_URL/https:\/\//https:\/\/x-access-token:${TOKEN}@}/${REPOSITORY}
         $GIT remote -v
         echo "::endgroup::"
       env:
